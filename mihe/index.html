@@ -3,7 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>米盒</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<link rel="shortcut icon" href="./images/logo.png">
 	<link rel="stylesheet" href="./css/animate.min.css">
 	<script src="./js/config.js"></script>
 	<style>
@@ -11,7 +12,6 @@
 			margin: 0;
 			padding: 0;
 		}
-
 		a {
 		    text-decoration: none;
 		    outline: none;
@@ -28,13 +28,27 @@
 		a:active {
 		    text-decoration: none;
 		}
+        .fac{
+        	display: flex;
+        	align-items: center;
+        }
+        .fcc{
+        	display: flex;
+        	align-items: center;
+        	justify-content: center;
+        }
+        .fsb{
+        	display: flex;
+        	align-items: center;
+        	justify-content: space-between;
+        }
+
 		html,body{
 			width: 100%;
 			min-height: 100%;
 			background: url('./images/bg.png') no-repeat fixed top;
 			background-size: 100% 100%;
 		}
-
 		.box{
 			width: 1rem;
 			height: 1rem;
@@ -50,16 +64,18 @@
 		}
         .title{
         	color: #fff;
-        	font-size: 0.25rem;
+        	font-size: 0.28rem;
         	font-weight: bolder;
         }
         .describe{
         	color: #fff;
-        	font-size: 0.2rem;
-        	margin-top: 0.3rem;
+        	font-size: 0.18rem;
+        	margin-top: 0.2rem;
         }
         .download {
         	width: 100%;
+        	padding: 0 0.2rem;
+        	box-sizing: border-box;
         	margin-top: 1rem;
         	margin-bottom: 0.2rem;
         }
@@ -71,19 +87,18 @@
         	border-radius: 100px;
         	background-color: #39B6FF;
         }
-        .fac{
-        	display: flex;
-        	align-items: center;
+        .download .name{
+        	font-size: 0.12rem;
         }
-        .fcc{
-        	display: flex;
-        	align-items: center;
-        	justify-content: center;
+        .download .ios-icon{
+        	width: 0.16rem;
+        	height: 0.17rem;
+        	margin-right: 0.05rem;
         }
-        .fsb{
-        	display: flex;
-        	align-items: center;
-        	justify-content: space-between;
+        .download .android-icon{
+        	width: 0.17rem;
+        	height: 0.19rem;
+        	margin-right: 0.05rem;
         }
         .ad{
         	width: 100%;
@@ -94,29 +109,13 @@
         }
 
 
-		/* 适配各种屏幕尺寸 */
-		@media (min-width: 1024px){
-		   	.title{
-		   		font-size: 60px;
-		   	}
+		/*当屏幕最大为1200px时，即屏幕小于1200px时 =>运用移动端的css方案*/
+		@media screen and (max-width:1200px){
+
 		}
-		@media (min-width: 1100px) {
-		    body,html{font-size: 20px}
-		}
-		@media (min-width: 1280px) {
-		    body,html{font-size: 22px;}
-		}
-		@media (min-width: 1366px) {
-		    body,html{font-size: 24px;}
-		}
-		@media (min-width: 1440px) {
-		    body,html{font-size: 25px;}
-		}
-		@media (min-width: 1680px) {
-		    body,html{font-size: 28px;}
-		}
-		@media (min-width: 1920px) {
-		    body,html{font-size: 33px;}
+		/*当屏幕最小为1200px时，即屏幕大于1200px时 =>运用pc端的css方案*/
+		@media screen and (min-width:1200px){
+
 		}
 	</style>
 </head>
@@ -126,17 +125,37 @@
 	   	   <div class="title animated">米盒</div>
 	   	   <div class="describe animated">一款专注于盲盒+社群营销的app</div>
 	   	   <div class="ad fcc">
-	   	   	 <img class="animated rotateIn" src="images/ad.png" alt="ad">
+	   	   	 <img class="animated rotateIn" src="./images/ad.png" alt="米盒">
 	   	   </div>
 	   	   <div class="download fsb">
 	   	   	  <a href="https://apps.apple.com/cn/app/id1494264512" class="btn fcc">
-	   	   	  	<span>iphone下载</span>
+	   	   	  	<img src="./images/ios.png" class="ios-icon" style="">
+	   	   	  	<span class="name">iphone下载</span>
 	   	   	  </a>
 	   	   	  <a href="http://xunmi2021.oss-cn-beijing.aliyuncs.com/mihe.apk" class="btn fcc">
-	   	   	  	<span>Android下载</span>
+	   	   	  	<img src="./images/android.png" class="android-icon">
+	   	   	  	<span class="name">Android下载</span>
 	   	   	  </a>
 	   	   </div>
 	   </div>
 	</div>
 </body>
+<script>
+	function IsPC() {
+        var userAgentInfo = navigator.userAgent;
+        var Agents = ["Android", "iPhone","SymbianOS", "Windows Phone", "iPod"];
+        var flag = true;
+        for (var v = 0; v < Agents.length; v++) {
+            if (userAgentInfo.indexOf(Agents[v]) > 0) {
+                flag = false;
+                break;
+            }
+        }
+        if(window.screen.width>=768){
+             flag = true;
+        }
+        return flag;
+        console.log(flag)
+    }
+</script>
 </html>
