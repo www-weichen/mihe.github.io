@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>米盒</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<link rel="shortcut icon" href="./images/logo.png">
+	<link rel="stylesheet" href="./css/animate.min.css">
+	<script src="./js/config.js"></script>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		a {
+		    text-decoration: none;
+		    outline: none;
+		}
+		a:link {
+		    text-decoration: none;
+		}
+		a:visited {
+		    text-decoration: none;
+		}
+		a:hover {
+		    text-decoration: none;
+		}
+		a:active {
+		    text-decoration: none;
+		}
+        .fac{
+        	display: flex;
+        	align-items: center;
+        }
+        .fcc{
+        	display: flex;
+        	align-items: center;
+        	justify-content: center;
+        }
+        .fsb{
+        	display: flex;
+        	align-items: center;
+        	justify-content: space-between;
+        }
+
+		html,body{
+			width: 100%;
+			min-height: 100%;
+			background: url('./images/bg.png') no-repeat fixed top;
+			background-size: 100% 100%;
+		}
+		.box{
+			width: 1rem;
+			height: 1rem;
+			background-color: pink;
+		}
+		.main{
+			width: 85%;
+			margin: 0 auto;
+			padding-top: 0.6rem;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+        .title{
+        	color: #fff;
+        	font-size: 0.28rem;
+        	font-weight: bolder;
+        }
+        .describe{
+        	color: #fff;
+        	font-size: 0.18rem;
+        	margin-top: 0.2rem;
+        }
+        .download {
+        	width: 100%;
+        	padding: 0 0.2rem;
+        	box-sizing: border-box;
+        	margin-top: 1rem;
+        	margin-bottom: 0.2rem;
+        }
+        .download .btn{
+        	width: 47%;
+        	height: 0.4rem;
+        	color: #fff;
+        	font-size: 0.14rem;
+        	border-radius: 100px;
+        	background-color: #39B6FF;
+        }
+        .download .name{
+        	font-size: 0.12rem;
+        }
+        .download .ios-icon{
+        	width: 0.16rem;
+        	height: 0.17rem;
+        	margin-right: 0.05rem;
+        }
+        .download .android-icon{
+        	width: 0.17rem;
+        	height: 0.19rem;
+        	margin-right: 0.05rem;
+        }
+        .ad{
+        	width: 100%;
+        	margin-top: 0.7rem;
+        }
+        .ad img{
+        	max-width: 100%;
+        }
+
+
+		/*当屏幕最大为1200px时，即屏幕小于1200px时 =>运用移动端的css方案*/
+		@media screen and (max-width:1200px){
+
+		}
+		/*当屏幕最小为1200px时，即屏幕大于1200px时 =>运用pc端的css方案*/
+		@media screen and (min-width:1200px){
+
+		}
+	</style>
+</head>
+<body>
+	<div class="" id="apps">
+	   <div class="main">
+	   	   <div class="title animated">米盒</div>
+	   	   <div class="describe animated">一款专注于盲盒+社群营销的app</div>
+	   	   <div class="ad fcc">
+	   	   	 <img class="animated rotateIn" src="./images/ad.png" alt="米盒">
+	   	   </div>
+	   	   <div class="download fsb">
+	   	   	  <a href="https://apps.apple.com/cn/app/id1494264512" class="btn fcc">
+	   	   	  	<img src="./images/ios.png" class="ios-icon" style="">
+	   	   	  	<span class="name">iphone下载</span>
+	   	   	  </a>
+	   	   	  <a href="http://xunmi2021.oss-cn-beijing.aliyuncs.com/mihe.apk" class="btn fcc">
+	   	   	  	<img src="./images/android.png" class="android-icon">
+	   	   	  	<span class="name">Android下载</span>
+	   	   	  </a>
+	   	   </div>
+	   </div>
+	</div>
+</body>
+<script>
+	function IsPC() {
+        var userAgentInfo = navigator.userAgent;
+        var Agents = ["Android", "iPhone","SymbianOS", "Windows Phone", "iPod"];
+        var flag = true;
+        for (var v = 0; v < Agents.length; v++) {
+            if (userAgentInfo.indexOf(Agents[v]) > 0) {
+                flag = false;
+                break;
+            }
+        }
+        if(window.screen.width>=768){
+             flag = true;
+        }
+        return flag;
+        console.log(flag)
+    }
+</script>
+</html>
