@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>米盒</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<link rel="shortcut icon" href="./images/logo.png">
+	<link rel="stylesheet" href="./css/animate.min.css">
+	<script src="./js/config.js"></script>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		a {
+		    text-decoration: none;
+		    outline: none;
+		}
+		a:link {
+		    text-decoration: none;
+		}
+		a:visited {
+		    text-decoration: none;
+		}
+		a:hover {
+		    text-decoration: none;
+		}
+		a:active {
+		    text-decoration: none;
+		}
+		.cfff{
+			color: #fff;
+		}
+		.ft12{
+			font-size: 12px;
+		}
+		.mt5{
+			margin-top: 5px;
+		}
+		.mt20{
+			margin-top: 20px;
+		}
+		.mt60{
+			margin-top: 60px;
+		}
+		.mr60{
+			margin-right: 60px;
+		}
+        .fac{
+        	display: flex;
+        	align-items: center;
+        }
+        .fd{
+        	display: flex;
+        	flex-direction: column;
+        }
+        .fdc{
+        	display: flex;
+        	flex-direction: column;
+        	align-items: center;
+        }
+        .fcc{
+        	display: flex;
+        	align-items: center;
+        	justify-content: center;
+        }
+        .fsb{
+        	display: flex;
+        	align-items: center;
+        	justify-content: space-between;
+        }
+
+    	html,body{
+			width: 100%;
+			height: 100%;
+		}
+		#apps{
+			width: 100%;
+			height: 100%;
+		}
+		.mobile{
+			width: 100%;
+			min-height: 100%;
+			background: url('./images/mobilebg.png') no-repeat fixed top;
+			background-size: 100% 100%;
+		}
+		.main{
+			width: 85%;
+			margin: 0 auto;
+			padding-top: 0.6rem;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+        .main .title{
+        	color: #fff;
+        	font-size: 0.28rem;
+        	font-weight: bolder;
+        }
+        .main .title .name{
+        	width: 0.62rem;
+        }
+        .main .describe{
+        	color: #fff;
+        	font-size: 0.18rem;
+        	margin-top: 0.2rem;
+        }
+        .main .download {
+        	width: 100%;
+        	padding: 0 0.2rem;
+        	box-sizing: border-box;
+        	margin-top: 1rem;
+        	margin-bottom: 0.2rem;
+        }
+        .main .download .btn{
+        	width: 47%;
+        	height: 0.4rem;
+        	color: #fff;
+        	font-size: 0.12rem;
+        	border-radius: 100px;
+        	background-color: #39B6FF;
+        }
+        .main .download .ios-icon{
+        	width: 0.16rem;
+        	height: 0.17rem;
+        	margin-right: 0.05rem;
+        }
+        .main .download .android-icon{
+        	width: 0.17rem;
+        	height: 0.19rem;
+        	margin-right: 0.05rem;
+        }
+        .main .ad{
+        	width: 100%;
+        	margin-top: 0.7rem;
+        }
+        .main .ad .img{
+        	max-width: 100%;
+        }
+
+
+		@media screen and (max-width:1200px){
+
+		}
+		@media screen and (min-width:1200px){
+
+		}
+
+
+		.pc{
+			width: 100%;
+			min-height: 100%;
+			font-size: 16px;
+			background: url('./images/pcbg.png') no-repeat center center;
+			background-size: 100% 100%;
+			position: relative;
+		}
+		.pc .content{
+			width: 70%;
+			margin: 0 auto;
+			position: absolute;
+			top: 30%;
+			left: 50%;
+			transform: translate(-50%,0);
+		}
+		.pc .content-l{
+			width: 40%;
+			height: 400px;
+		}
+		.pc .content-l .img{
+			max-width: 100%;
+		}
+		.card{
+			width: 60%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			margin-top: -12%;
+			position: relative;
+		}
+		.card .circular{
+			max-width: 45%;
+			top: 70%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			position: absolute;
+			z-index: -1;
+		}
+		.card .title{
+			color: #fff;
+        	font-size: 60px;
+        	font-weight: bolder;
+        	position: relative;
+		}
+		.card .title .name{
+			width: 88px;
+		}
+		.card .title:after{
+			content: '';
+			display: block;
+			width: 80px;
+			height: 1px;
+			background-color: #fff;
+			position: absolute;
+			top: 50%;
+			left: -100px;
+			opacity: 0.5;
+		}
+		.card .title:before{
+			content: '';
+			display: block;
+			width: 80px;
+			height: 1px;
+			background-color: #fff;
+			position: absolute;
+			top: 50%;
+			right: -100px;
+			opacity: 0.5;
+		}
+		.card .describe{
+        	color: #fff;
+        	font-size: 30px;
+        	margin-top: 20px;
+        	letter-spacing: 3px;
+        }
+        .card .code{
+        	width: 140px;
+        	height: 140px;
+        }
+        .card .code .ercode{
+        	width: 100%;
+        	height: 100%;
+        }
+        .card .download .btn{
+        	width: 190px;
+        	height: 58px;
+        	color: #601ED2;
+        	font-size: 18px;
+        	border-radius: 100px;
+        	background-color: #fff;
+        }
+        .card .download .active{
+        	color: #fff;
+        	background-color: #39B6FF;
+        }
+        .card .download .ios-icon{
+        	width: 25px;
+        	height: 27px;
+        	margin-right: 7px;
+        }
+        .card .download .android-icon{
+        	width: 25px;
+        	height: 29px;
+        	margin-right: 7px;
+        }
+	</style>
+</head>
+<body>
+	<div id="apps">
+	   <div class="mobile" v-if="!is_pc">
+		   <div class="main">
+		   	   <div class="title">
+		   	   		<img src="./images/title.png" class="name" alt="米盒">
+		   	   </div>
+		   	   <div class="describe">一款专注于盲盒+社群营销的APP</div>
+		   	   <div class="ad fcc">
+		   	   	 <img class="img animated rotateIn" src="./images/ad.png" alt="米盒">
+		   	   </div>
+		   	   <div class="download fsb">
+		   	   	  <a href="https://apps.apple.com/cn/app/id1494264512" class="btn fcc">
+		   	   	  	<img src="./images/ios.png" class="ios-icon">
+		   	   	  	<span class="name">ios下载</span>
+		   	   	  </a>
+		   	   	  <a href="http://xunmi2021.oss-cn-beijing.aliyuncs.com/mihe.apk" class="btn fcc">
+		   	   	  	<img src="./images/android.png" class="android-icon">
+		   	   	  	<span class="name">Android下载</span>
+		   	   	  </a>
+		   	   </div>
+		   </div>
+	   </div>
+	  <div class="pc" v-else>
+		<div class="content fsb">
+			<div class="content-l fcc">
+				<img class="img animated rotateIn" src="./images/ad.png" alt="米盒">
+			</div>
+			<div class="card">
+				<img src="./images/circular.png" class="circular">
+				<div class="title">
+					<img src="./images/title.png" class="name" alt="米盒">
+				</div>
+				<div class="describe">一款专注于盲盒+社群营销的APP</div>
+				<div class="ercode-wrap fac mt60">
+	                <div class="fdc mr60" v-show="downloadCurrent==0">
+	                	<div class="code">
+	                        <img src="./images/ios_code.png" class="ercode">
+					    </div>
+					    <span class="cfff ft12 mt5">扫描二维码下载ios端</span>
+	                </div>
+	                <div class="fdc mr60" v-show="downloadCurrent==1">
+					    <div class="code">
+	                        <img src="./images/android_code.png" class="ercode">
+					    </div>
+					    <span class="cfff ft12 mt5">扫描二维码下载Android端</span>
+					</div>
+					<div class="download fd">
+			   	   	  <div class="btn fcc" :class="{'active':downloadCurrent==0}" @click="downloadSelect(0)">
+			   	   	  	<img src="./images/ios.png" class="ios-icon" v-show="downloadCurrent==0">
+			   	   	  	<img src="./images/ios2.png" class="ios-icon" v-show="downloadCurrent==1">
+			   	   	  	<span class="name">ios下载</span>
+			   	   	  </div>
+			   	   	  <div class="btn fcc mt20" :class="{'active':downloadCurrent==1}" @click="downloadSelect(1)">
+			   	   	  	<img src="./images/android.png" class="android-icon" v-show="downloadCurrent==1">
+			   	   	  	<img src="./images/android2.png" class="android-icon" v-show="downloadCurrent==0">
+			   	   	  	<span class="name">Android下载</span>
+			   	   	  </div>
+		   	   		</div>
+				</div>
+			</div>
+		</div>
+	  </div>
+	</div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: '#apps',
+        data: {
+        	is_pc: false,
+        	downloadCurrent: 0,
+        },
+        mounted(){
+			this.isMobile();
+		},
+        methods: {
+        	isMobile() {
+		   		let flag = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+				if(flag){
+					this.is_pc = false;
+				}else{
+					this.is_pc = true;
+				}
+		   	},
+		   	downloadSelect: function(index){
+		   		this.downloadCurrent = index;
+		   	}
+        }
+    });
+</script>
+</html>
