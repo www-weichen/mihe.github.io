@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>盲乐购</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<link rel="shortcut icon" href="./images/logo.png">
+	<script src="./js/config.js"></script>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		a {
+		    text-decoration: none;
+		    outline: none;
+		}
+		a:link {
+		    text-decoration: none;
+		}
+		a:visited {
+		    text-decoration: none;
+		}
+		a:hover {
+		    text-decoration: none;
+		}
+		a:active {
+		    text-decoration: none;
+		}
+		.cfff{
+			color: #fff;
+		}
+		.ft12{
+			font-size: 12px;
+		}
+		.mt5{
+			margin-top: 5px;
+		}
+		.mt20{
+			margin-top: 20px;
+		}
+		.mt60{
+			margin-top: 60px;
+		}
+		.mr60{
+			margin-right: 60px;
+		}
+        .fac{
+        	display: flex;
+        	align-items: center;
+        }
+        .fd{
+        	display: flex;
+        	flex-direction: column;
+        }
+        .fdc{
+        	display: flex;
+        	flex-direction: column;
+        	align-items: center;
+        }
+        .fcc{
+        	display: flex;
+        	align-items: center;
+        	justify-content: center;
+        }
+        .fsb{
+        	display: flex;
+        	align-items: center;
+        	justify-content: space-between;
+        }
+
+    	html,body{
+			width: 100%;
+			height: 100%;
+		}
+		#apps{
+			width: 100%;
+			height: 100%;
+		}
+		.mobile{
+			width: 100%;
+			min-height: 100%;
+			background: url('./images/mobilebg.png') no-repeat fixed top;
+			background-size: cover;
+		}
+        .main .download {
+        	width: 100%;
+        	padding: 0 0.5rem;
+        	box-sizing: border-box;
+        	position: fixed;
+        	left: 0;
+        	bottom: 5%;
+        }
+        .main .download .btn{
+        	width: 47%;
+        	height: 0.4rem;
+        	color: #000;
+        	font-size: 0.14rem;
+        	border-bottom: 0.04rem solid #FFF100;
+        	background-color: #75F900;
+        }
+        .main .download .ios-icon{
+        	width: 0.16rem;
+        	height: 0.17rem;
+        	margin-right: 0.05rem;
+        }
+        .main .download .android-icon{
+        	width: 0.17rem;
+        	height: 0.19rem;
+        	margin-right: 0.05rem;
+        }
+
+
+		@media screen and (max-width:1200px){
+
+		}
+		@media screen and (min-width:1200px){
+
+		}
+
+
+		.pc{
+			width: 100%;
+			min-height: 100%;
+			font-size: 16px;
+			background: url('./images/pcbg.png') no-repeat center center;
+			background-size: cover;
+			position: relative;
+		}
+		.pc .content{
+			width: 100%;
+			margin: 0 auto;
+			position: absolute;
+			top: 30%;
+			left: 50%;
+			transform: translate(-50%,0);
+		}
+		.pc .content-l{
+			width: 50%;
+			height: 400px;
+		}
+		.pc .content-l .img{
+			max-width: 100%;
+		}
+		.card{
+			width: 50%;
+			display: flex;
+			flex-direction: column;
+			/*align-items: center;*/
+			justify-content: center;
+			/*margin-top: -12%;*/
+			margin-top: 10%;
+			padding-left: 10%;
+			position: relative;
+			/*background-color: pink;*/
+		}
+        .card .code{
+        	width: 150px;
+        	height: 150px;
+        }
+        .card .code .ercode{
+        	width: 100%;
+        	height: 100%;
+        }
+        .card .download .btn{
+        	width: 200px;
+			height: 60px;
+        	font-size: 18px;
+        	border-bottom: 4px solid #FFF100;
+        	background-color: #75F900;
+        }
+        .card .download .ios-icon{
+        	width: 25px;
+        	height: 27px;
+        	margin-right: 7px;
+        }
+        .card .download .android-icon{
+        	width: 25px;
+        	height: 29px;
+        	margin-right: 7px;
+        }
+	</style>
+</head>
+<body>
+	<div id="apps">
+	   <div class="mobile main" v-if="!is_pc">
+	   	   <div class="download fsb">
+	   	   	  <a href="https://apps.apple.com/cn/app/id1494264512" class="btn fcc">
+	   	   	  	<img src="./images/ios.png" class="ios-icon">
+	   	   	  	<span class="name">iphone下载</span>
+	   	   	  </a>
+	   	   	  <a href="http://xunmi2021.oss-cn-beijing.aliyuncs.com/mihe.apk" class="btn fcc">
+	   	   	  	<img src="./images/android.png" class="android-icon">
+	   	   	  	<span class="name">Android下载</span>
+	   	   	  </a>
+	   	   </div>
+	   </div>
+	  <div class="pc" v-else>
+		<div class="content fsb">
+			<div class="content-l fcc">
+				
+			</div>
+			<div class="card">
+				<div class="ercode-wrap fac mt60">
+	                <div class="fdc mr60" v-show="downloadCurrent==0">
+	                	<div class="code">
+	                        <img src="./images/ios_code.png" class="ercode">
+					    </div>
+					    <span class="cfff ft12 mt5">扫描二维码下载ios端</span>
+	                </div>
+	                <div class="fdc mr60" v-show="downloadCurrent==1">
+					    <div class="code">
+	                        <img src="./images/android_code.png" class="ercode">
+					    </div>
+					    <span class="cfff ft12 mt5">扫描二维码下载Android端</span>
+					</div>
+					<div class="download fd">
+			   	   	  <div class="btn fcc" @click="downloadSelect(0)">
+			   	   	  	<img src="./images/ios.png" class="ios-icon" >
+			   	   	  	<!-- <img src="./images/ios2.png" class="ios-icon" v-show="downloadCurrent==1"> -->
+			   	   	  	<span class="name">ios下载</span>
+			   	   	  </div>
+			   	   	  <div class="btn fcc mt20" @click="downloadSelect(1)">
+			   	   	  	<img src="./images/android.png" class="android-icon" >
+			   	   	  	<!-- <img src="./images/android2.png" class="android-icon" v-show="downloadCurrent==0"> -->
+			   	   	  	<span class="name">Android下载</span>
+			   	   	  </div>
+		   	   		</div>
+				</div>
+			</div>
+		</div>
+	  </div>
+	</div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: '#apps',
+        data: {
+        	is_pc: false,
+        	downloadCurrent: 0,
+        },
+        mounted(){
+			this.isMobile();
+		},
+        methods: {
+        	isMobile() {
+		   		let flag = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+				if(flag){
+					this.is_pc = false;
+				}else{
+					this.is_pc = true;
+				}
+		   	},
+		   	downloadSelect: function(index){
+		   		this.downloadCurrent = index;
+		   	}
+        }
+    });
+</script>
+</html>
